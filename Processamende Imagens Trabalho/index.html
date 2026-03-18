@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Processador de Imagens</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Leitor de Imagens</h2>
+
+<div class="container">
+    <div>
+        <p>Imagem 1:</p>
+        <input type="file" id="input1" accept="image/*">
+        <br><canvas id="canvas1"></canvas>
+    </div>
+    <div>
+        <p>Imagem 2:</p>
+        <input type="file" id="input2" accept="image/*">
+        <br><canvas id="canvas2"></canvas>
+    </div>
+</div>
+
+<div class="botoes">
+    <button onclick="multiplicarContraste()">Multiplicar Contraste</button>
+    <button onclick="dividirContraste()">Dividir Contraste</button>
+    <button onclick="somarImagens()">Somar Imagens</button>
+    <button onclick="subtrairImagens()">Subtrair Imagens</button>
+    <button onclick="aumentarBrilho()">Aumentar Brilho</button>
+    <button onclick="diminuirBrilho()">Diminuir Brilho</button>
+</div>
+
+<br>
+<p>Resultado:</p>
+<canvas id="canvasResultado"></canvas>
+
+<p><i>Abra o console do desenvolvedor (F12) para ver os dados das matrizes.</i></p>
+
+<script src="script.js"></script>
+</body>
+</html>
