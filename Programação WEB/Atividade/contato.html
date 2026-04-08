@@ -1,21 +1,67 @@
 <!DOCTYPE html>
 <html lang= "pt-BR">
 
+<head>
+<style>
+body {
+    margin: 0;
+    padding: 10px;
+    font-family: Arial;
+}
+
+/* MENU */
+nav {
+    background: #333;
+    padding: 10px;
+}
+
+a {
+    margin-right: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+/* HOVER */
+a:hover {
+    color: yellow;
+}
+
+/* FORM */
+input {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* RESPONSIVO */
+
+/* CELULAR */
+@media (max-width: 767px) {
+    body { background-color: lightgreen; }
+    nav { display: flex; flex-direction: column; }
+}
+
+/* TABLET */
+@media (min-width: 768px) and (max-width: 1023px) {
+    body { background-color: lightyellow; }
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+    body { background-color: lightcoral; }
+}
+</style>
+</head>
+
 <body>
-      <nav>
-      <a href="index.html">Inicio </a>
-      <a href="index.html">Sobre </a>
-      <a href="index.html">Contato </a> 
-      <a href="index.html">Links </a>
-      </nav>
-      <style>
-         a {
-         margin-right: 20px;
-         }
-      </style>
+<nav>
+<a href="index.html">Inicio </a>
+<a href="index.html">Sobre </a>
+<a href="index.html">Contato </a> 
+<a href="index.html">Links </a>
+</nav>
 
 <form> 
-    <br>
+<br>
 <label>Nome:</label>
 <input type="text">
 <br> <br>
@@ -30,13 +76,18 @@
 
 <button>Enviar</button>
 </form>
+
 <br>
+
 <nav>
-      <a href="https://www.instagram.com/" target="_blank">Instagram</a>
-      <a href="https://www.facebook.com/?locale=pt_BR" target="_blank"> Instagram</a>
-      </nav>
-      <br>
+<a href="https://www.instagram.com/" target="_blank">Instagram</a>
+<a href="https://www.facebook.com/?locale=pt_BR" target="_blank"> Instagram</a>
+</nav>
+
+<br>
+
 <footer> Ruan Casarotto T12024
-      </footer>
-      </body>
-      </html>
+</footer>
+
+</body>
+</html>
