@@ -5,7 +5,6 @@ function processarImagem(inputId, canvasId) {
     const input = document.getElementById(inputId);
     const canvas = document.getElementById(canvasId);
     const ctx = canvas.getContext('2d');
-
     input.addEventListener('change', (e) => {
         const reader = new FileReader();
         reader.onload = (event) => {
@@ -18,7 +17,6 @@ function processarImagem(inputId, canvasId) {
                 const imageData = ctx.getImageData(0, 0, img.width, img.height);
                 const pixels = imageData.data;
 
-                // Criando matriz de pixels
                 let matriz = [];
                 for (let y = 0; y < img.height; y++) {
                     let linha = [];
@@ -121,7 +119,7 @@ function multiplicarContraste(){
         alert("Carregue a imagem 1");
         return;
     }
-    let fator = 1.2; // multiplica os pixels para aumentar contraste
+    let fator = 1.2; 
     let resultado = new ImageData(imgData1.width, imgData1.height);
     for(let i=0;i<imgData1.data.length;i+=4){
         resultado.data[i]   = Math.min(Math.max(imgData1.data[i]*fator,0),255);
@@ -137,7 +135,7 @@ function dividirContraste(){
         alert("Carregue a imagem 1");
         return;
     }
-    let fator = 1.2; // divide os pixels para diminuir contraste
+    let fator = 1.2; 
     let resultado = new ImageData(imgData1.width, imgData1.height);
     for(let i=0;i<imgData1.data.length;i+=4){
         resultado.data[i]   = Math.min(Math.max(imgData1.data[i]/fator,0),255);
@@ -148,6 +146,72 @@ function dividirContraste(){
     mostrarResultado(resultado);
 }
 
-// Inicializa os inputs
+function salvarImagem(){
+    const canvas = document.getElementById("canvasResultado");
+
+    if(canvas.width === 0){
+        alert("Nenhuma imagem para salvar!");
+        return;
+    }
+    const link = document.createElement("a");
+    link.download = "imagem_resultado.png";
+    link.href = canvas.toDataURL("image/png");
+
+    link.click();
+}
+
+function converterParaCinza(){
+    if(!imgData1){
+        alert("Carregue a imagem 1");
+        return;
+    }
+
+    let resultado = new ImageData(imgData1.width, imgData1.height);
+
+    for(let i = 0; i < imgData1.data.length; i += 4){
+        let r = imgData1.data[i];
+        let g = imgData1.data[i+1];
+        let b = imgData1.data[i+2];
+
+        let cinza = 0.299 * r + 0.587 * g + 0.114 * b;
+
+        resultado.data[i]   = cinza;
+        resultado.data[i+1] = cinza;
+        resultado.data[i+2] = cinza;
+        resultado.data[i+3] = 255;
+    }
+
+    mostrarResultado(resultado);
+}
+
+function inverterImagem() {
+    const canvas = document.getElementById("canvas1");
+    const ctxRes = document.getElementById("canvasResultado").getContext("2d");
+
+    const width = canvas.width;
+    const height = canvas.height;
+
+    const canvasRes = document.getElementById("canvasResultado");
+    canvasRes.width = width;
+    canvasRes.height = height;
+
+    // Espelha horizontalmente
+    ctxRes.save();
+    ctxRes.scale(-1, 1); // inverte no eixo X
+    ctxRes.drawImage(canvas, -width, 0);
+    ctxRes.restore();
+}
+function inverterVertical() {
+    const c = document.getElementById("canvas1");
+    const r = document.getElementById("canvasResultado");
+
+    r.width = c.width;
+    r.height = c.height;
+
+    const ctx = r.getContext("2d");
+
+    ctx.scale(1, -1);
+    ctx.drawImage(c, 0, -c.height);
+}
 processarImagem('input1', 'canvas1');
 processarImagem('input2', 'canvas2');

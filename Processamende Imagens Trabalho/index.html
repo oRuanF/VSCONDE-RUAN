@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<h2>Leitor de Imagens</h2>
+<h2>Processamento de imagens</h2>
 
 <div class="container">
     <div>
@@ -29,6 +29,9 @@
     <button onclick="subtrairImagens()">Subtrair Imagens</button>
     <button onclick="aumentarBrilho()">Aumentar Brilho</button>
     <button onclick="diminuirBrilho()">Diminuir Brilho</button>
+    <button onclick="converterParaCinza()">Escala de Cinza</button>
+    <button onclick="inverterImagem()">Inverter Horizontal</button>
+    <button onclick="inverterVertical()">Inverter Vertical</button>
 </div>
 
 <br>
@@ -38,5 +41,8 @@
 <p><i>Abra o console do desenvolvedor (F12) para ver os dados das matrizes.</i></p>
 
 <script src="script.js"></script>
+
+<button onclick="salvarImagem()">Salvar Imagem</button>
+
 </body>
 </html>

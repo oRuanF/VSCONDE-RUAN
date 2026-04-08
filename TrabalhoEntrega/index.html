@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camiseta Premium</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topo">
+  <h2>🛒 Store</h2>
+
+  <input type="text" placeholder="Buscar camisetas...">
+
+  <div class="auth">
+    <button class="login">Login</button>
+    <button class="registrar">Registrar</button>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- MENU -->
+  <aside class="menu">
+    <h3>Categorias</h3>
+    <ul>
+      <li>Camisetas</li>
+      <li>Masculino</li>
+      <li>Feminino</li>
+      <li>Promoções</li>
+    </ul>
+  </aside>
+
+  <!-- PRODUTO -->
+  <main class="produto">
+
+    <!-- IMAGENS -->
+    <div class="imagens">
+
+      <div class="carrossel">
+
+        <img src="Camiseta1.webp" id="imgPrincipal" class="principal">
+
+        <div class="controles">
+          <button onclick="anterior()">❮ Anterior</button>
+          <button onclick="proxima()">Próxima ❯</button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- INFO -->
+    <div class="info">
+      <h1>Camiseta Masculina Premium</h1>
+
+      <p class="preco">R$ 79,90</p>
+
+      <p class="descricao">
+        Camiseta masculina confeccionada em algodão 100%, oferecendo conforto,
+        respirabilidade e excelente caimento. Ideal para uso diário e combina
+        com diversos estilos.
+      </p>
+
+      <ul class="lista">
+        <li>Material: Algodão 100%</li>
+        <li>Modelagem: Oversized</li>
+        <li>Gola: Redonda</li>
+        <li>Manga: Curta</li>
+      </ul>
+
+      <table>
+        <tr>
+          <td>Tamanhos</td>
+          <td>P, M, G, GG</td>
+        </tr>
+        <tr>
+          <td>Cores</td>
+          <td>Preto, Branco, Cinza</td>
+        </tr>
+        <tr>
+          <td>Garantia</td>
+          <td>3 meses</td>
+        </tr>
+      </table>
+
+      <button onclick="comprar()">🛒 Comprar</button>
+      <button class="secundario">❤️ Favoritar</button>
+
+      <div class="redes">
+        <span>📘</span>
+        <span>📸</span>
+        <span>🐦</span>
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+<script>
+let imagens = [
+  "Camiseta1.webp",
+  "Camiseta2.png",
+  "camiseta3.png",
+];
+
+let index = 0;
+
+function mostrarImagem() {
+  document.getElementById("imgPrincipal").src = imagens[index];
+}
+
+function proxima() {
+  index++;
+  if (index >= imagens.length) index = 0;
+  mostrarImagem();
+}
+
+function anterior() {
+  index--;
+  if (index < 0) index = imagens.length - 1;
+  mostrarImagem();
+}
+
+function comprar() {
+  alert("Compra realizada com sucesso!");
+}
+</script>
+
+</body>
+</html>
